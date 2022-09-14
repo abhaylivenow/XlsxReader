@@ -35,17 +35,19 @@ public class Main {
             }
         }
 
-        generateFiles(outputList);
+        generateFilesAndFolders(outputList);
     }
 
-    private static void generateFiles(List<String> outputList) throws IOException {
+    private static void generateFilesAndFolders(List<String> outputList) throws IOException {
+        File f1 = new File("/Users/abhaymaurya/Downloads/GeneratedFolders");
+        f1.mkdir();
         createEnglishFile(outputList);
         createHindiFile(outputList);
         createHinglishFile(outputList);
     }
 
     private static void createEnglishFile(List<String> outputList) throws IOException {
-        File file = new File("/Users/abhaymaurya/Downloads/EnglishFile.txt");
+        File file = new File("/Users/abhaymaurya/Downloads/GeneratedFolders/EnglishFile.txt");
         boolean result;
         try {
             result = file.createNewFile();
@@ -58,7 +60,7 @@ public class Main {
             e.printStackTrace();
         }
 
-        FileWriter writer = new FileWriter("/Users/abhaymaurya/Downloads/EnglishFile.txt");
+        FileWriter writer = new FileWriter("/Users/abhaymaurya/Downloads/GeneratedFolders/EnglishFile.txt");
 
         try {
             for (int i = 0; i < outputList.size() - 1; i += 4) {
@@ -72,7 +74,7 @@ public class Main {
     }
 
     private static void createHinglishFile(List<String> outputList) throws IOException {
-        File file = new File("/Users/abhaymaurya/Downloads/HinglishFile.txt");
+        File file = new File("/Users/abhaymaurya/Downloads/GeneratedFolders/HinglishFile.txt");
         boolean result;
         try {
             result = file.createNewFile();
@@ -85,7 +87,7 @@ public class Main {
             e.printStackTrace();
         }
 
-        FileWriter writer = new FileWriter("/Users/abhaymaurya/Downloads/HinglishFile.txt");
+        FileWriter writer = new FileWriter("/Users/abhaymaurya/Downloads/GeneratedFolders/HinglishFile.txt");
 
         try {
             for (int i = 0; i < outputList.size() - 1; i += 4) {
@@ -99,7 +101,7 @@ public class Main {
     }
 
     private static void createHindiFile(List<String> outputList) throws IOException {
-        File file = new File("/Users/abhaymaurya/Downloads/HindiFile.txt");
+        File file = new File("/Users/abhaymaurya/Downloads/GeneratedFolders/HindiFile.txt");
         boolean result;
         try {
             result = file.createNewFile();
@@ -112,7 +114,7 @@ public class Main {
             e.printStackTrace();
         }
 
-        FileWriter writer = new FileWriter("/Users/abhaymaurya/Downloads/HindiFile.txt");
+        FileWriter writer = new FileWriter("/Users/abhaymaurya/Downloads/GeneratedFolders/HindiFile.txt");
 
         try {
             for (int i = 0; i < outputList.size() - 1; i += 4) {
