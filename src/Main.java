@@ -11,30 +11,36 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
-        JFrame frame = new JFrame("Excel to XML converter");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1000,200);
-
-        JPanel panel = new JPanel();
+        JFrame frame = new JFrame();
         JLabel labelSource = new JLabel("Source Location");
         JTextField edtSourceLocation = new JTextField(20);
-        JLabel labelDestination = new JLabel("Destination location");
+        JLabel labelDestination = new JLabel("Destination Location");
         JTextField edtDestinationLocation = new JTextField(20);
-        JButton btn = new JButton("Generate xml files");
-        panel.add(labelSource);
-        panel.add(edtSourceLocation);
-        panel.add(labelDestination);
-        panel.add(edtDestinationLocation);
-        panel.add(edtDestinationLocation);
-        panel.add(btn);
+        JButton btnExcelToXml = new JButton("Generate xml files");
+        JPanel p1 = new JPanel();
+        p1.add(labelSource);
+        p1.add(edtSourceLocation);
+        p1.add(labelDestination);
+        p1.add(edtDestinationLocation);
+        p1.add(btnExcelToXml);
 
-        frame.getContentPane().add(panel);
+        JPanel p2 = new JPanel();
 
+        JTabbedPane tabs = new JTabbedPane();
+        tabs.setBounds(40,20,300,300);
+        tabs.add("Excel to xml", p1);
+        tabs.add("Xml to excel", p2);
+
+        //Add tabs to the frame
+        frame.add(tabs);
+
+        frame.setSize(400,400);
+        frame.setLayout(null);
         frame.setVisible(true);
 
-        btn.addActionListener(e -> {
+        btnExcelToXml.addActionListener(e -> {
             System.out.println(edtSourceLocation.getText());
             System.out.println(edtDestinationLocation.getText());
             try {
